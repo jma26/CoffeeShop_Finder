@@ -1,0 +1,11 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+#map {
+    width: 500px;
+    height: 500px;
+    border: 1px solid purple;
+}
