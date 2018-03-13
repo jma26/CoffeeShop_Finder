@@ -2,10 +2,82 @@
     margin: 0px;
     padding: 0px;
     font-family: sans-serif;
+    color: yellow;
+}
+
+body {
+    background-image: url('Coffee_background.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 #map {
-    width: 500px;
-    height: 500px;
-    border: 1px solid purple;
+    width: 600px;
+    height: 600px;
+    border: 1px solid black;
+    margin-right: 50px;
+    margin-left: 50px;
 }
+
+#title {
+    font-size: 65px;
+    margin-left: 50px;
+}
+
+.container {
+    display: flex;
+}
+
+#table_place * {
+    font-size: 21px;
+}
+
+#table_place {
+    width: 50%;
+    margin-right: 50px;
+}
+
+.table_name {
+    width: 300px;
+}
+
+#table_heading_name, #table_heading_rating, #table_heading_address {
+    border: 2px solid yellow;
+    padding: 5px;
+    text-align: center;
+}
+
+.table_rating {
+    width: 100px;
+    text-align: center;
+}
+
+.table_address {
+    width: 450px;
+    text-align: left;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    bottom: 0px;
+    position: fixed; 
+}
+
+footer * {
+    font-size: 15px;
+}
+
+.icon {
+    margin-top: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 60%;
+    margin-left: 15px;
+}
+
+#copyright {
+    text-align: center;
+}
+
+

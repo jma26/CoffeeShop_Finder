@@ -41,14 +41,15 @@ function initMap() {
         function callback(results, status) {
             // Clear the table before appending new list when viewport changes
             $("#table_place").children().remove();
-            $('#table_place').append("<tr><th> Name </th><th> Rating </th></tr>");
+            $('#table_place').append("<tr><th class='table_name' id='table_heading_name'> Name </th><th class='table_rating' id='table_heading_rating'> Rating </th><th class='table_address' id='table_heading_address'> Address </th></tr>");
+            console.log(results);
             console.log('Function callback is hit');
 
             if (status == google.maps.places.PlacesServiceStatus.OK) {
                 for (let i = 0; i < results.length; i++) {
                     createMarker(results[i]);
                     // Update table with place's information
-                    $('#table_place').append("<tr><td>" + results[i].name + "</td><td>" + results[i].rating + "</td></tr>");
+                    $('#table_place').append("<tr><td class='table_name'>" + results[i].name + "</td><td class='table_rating'>" + results[i].rating + "</td><td class='table_address'>" + results[i].vicinity + "</td></tr>");
                 }
             }
         }
@@ -127,10 +128,14 @@ function initMap() {
         let service = new google.maps.places.PlacesService(map);
 
         function callback(results, status) {
-            console.log('Function callback is hit');
+            // Clear the table before appending new list when viewport changes
+            $("#table_place").children().remove();
+            $('#table_place').append("<tr><th class='table_name' id='table_heading_name'> Name </th><th class='table_rating' id='table_heading_rating'> Rating </th><th id='table_address' id='table_heading_address'> Address </th></tr>");
             if (status == google.maps.places.PlacesServiceStatus.OK) {
                 for (let i = 0; i < results.length; i++) {
                     createMarker(results[i]);
+                   // Update table with place's information
+                   $('#table_place').append("<tr><td class='table_name'>" + results[i].name + "</td><td class='table_rating'>" + results[i].rating + "</td><td>" + results[i].vicinity + "</td></tr>");
                 }
             }
         }

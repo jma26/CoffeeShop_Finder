@@ -5,19 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> Coffee Shop Finder </title>
+    <!-- Google Map API  -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtXnQQ71iNPHOj-yBfWt9fIgLYHy1MKHQ&libraries=places&callback=initMap" async defer></script>
+    <!-- End of Google Map API -->
     <script type='text/javascript' src='coffee.js'></script>
+    <!-- jQuery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- End of jQuery -->
     <link rel='stylesheet' type='text/css' href='coffee.css'>
 </head>
 <body>
-    <h1> Where's my Coffee? </h1>
-    <div id='map'></div>
-    <table id='table_place'>
-        <tr>
-            <th> Name </th>
-            <th> Rating </th>
-        </tr>
-    </table>
+    <h1 id='title'> I &#10084; Coffee </h1>
+    <div class='container'>
+        <div id='map'></div>
+        <table id='table_place'></table>
+    </div>
+    <footer>
+        <p id='copyright'> &copy; 2018 Created by Jesse Ma </p>
+        <a href='https://github.com/jma26' target='_blank'><img src='GitHubLight-Icon.png' class='icon'></a>
+        <a href='https://www.linkedin.com/in/jesse-ma-b2522b84/' target='_blank'><img src='Linkedin-Icon.png' class='icon'></a>
+    </footer>
 </body>
 </html>
