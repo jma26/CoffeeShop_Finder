@@ -39,23 +39,29 @@ function initMap() {
         let service = new google.maps.places.PlacesService(map);
 
         function callback(results, status) {
+            // Clear the table before appending new list when viewport changes
+            $("#table_place").children().remove();
+            $('#table_place').append("<tr><th> Name </th><th> Rating </th></tr>");
             console.log('Function callback is hit');
+
             if (status == google.maps.places.PlacesServiceStatus.OK) {
                 for (let i = 0; i < results.length; i++) {
                     createMarker(results[i]);
+                    // Update table with place's information
+                    $('#table_place').append("<tr><td>" + results[i].name + "</td><td>" + results[i].rating + "</td></tr>");
                 }
             }
         }
 
         let markers = [];
         // Create a marker for each result from function callback(results, status)
+        // Note: calling callback will re-update placeInfo
         function createMarker(place) {
             let marker = new google.maps.Marker({
                 map: map,
                 position: place.geometry.location
             });
             markers.push(marker);
-            
 
             // Add event map listener for marker 'click'
             google.maps.event.addListener(marker, 'click', function() {
@@ -65,6 +71,7 @@ function initMap() {
         }
 
         // Bias results towards current maps' viewport
+        // NOTE: Known bug when using 'bounds_changed' where event gets triggered multiple times
         google.maps.event.addListener(map, 'idle', function() {
             
             // Clear out old markers
@@ -112,8 +119,6 @@ function initMap() {
             openNow: true,
             radius: 7000
         }
-
-        console.log(request);
         
         // infoWindow initialization
         let infoWindow = new google.maps.InfoWindow;
