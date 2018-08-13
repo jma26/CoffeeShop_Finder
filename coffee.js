@@ -1,5 +1,7 @@
 function initMap() {
-
+    // Global variables
+    infowindow = new google.maps.InfoWindow();
+  
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(currentPosition, defaultPosition)
     } else {
@@ -30,8 +32,6 @@ function initMap() {
             openNow: true,
             radius: 7000
         }
-        // Infowindow initialization
-        let infowindow = new google.maps.InfoWindow();
 
         // Map initialization
         let map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -112,17 +112,6 @@ function initMap() {
 
         // Map initialization
         let map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-        // nearbySearch request fields
-        let request = {
-            location: {lat: mapOptions.center.lat, lng: mapOptions.center.lng},
-            type: ['cafe'],
-            openNow: true,
-            radius: 7000
-        }
-        
-        // infoWindow initialization
-        let infoWindow = new google.maps.InfoWindow;
         
         // nearbySearch initialization
         let service = new google.maps.places.PlacesService(map);
@@ -167,6 +156,7 @@ function initMap() {
             let long = map.getBounds().getCenter().lng();
             let updatedBounds = new google.maps.LatLng(lat, long);
 
+            // nearbySearch request fields
             let request = {
                 location: updatedBounds,
                 type: ['cafe'],
