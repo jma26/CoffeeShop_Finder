@@ -130,7 +130,7 @@ function initMap() {
         function callback(results, status) {
             // Clear the table before appending new list when viewport changes
             $("#table_place").children().remove();
-            $('#table_place').append("<tr><th class='table_name' id='table_heading_name'> Name </th><th class='table_rating' id='table_heading_rating'> Rating </th><th id='table_address' id='table_heading_address'> Address </th></tr>");
+            $('#table_place').append("<tr><th class='table_name' id='table_heading_name'> Name </th><th class='table_rating' id='table_heading_rating'> Rating </th><th id='table_heading_address'> Address </th></tr>");
             if (status == google.maps.places.PlacesServiceStatus.OK) {
                 for (let i = 0; i < results.length; i++) {
                     createMarker(results[i]);
